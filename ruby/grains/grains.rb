@@ -12,6 +12,6 @@ class Grains
   end
 
   def self.total
-    (1..64).map { square(_1) }.sum
+    2 ** 64 - 1
   end
 end
