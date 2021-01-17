@@ -5,6 +5,9 @@
 # `ruby/armstrong-numbers` directory.
 class ArmstrongNumbers
   def self.include?(number)
-    number.digits.sum { _1 ** number.digits.size } == number
+    digits = number.digits
+    length = digits.length
+
+    digits.sum { _1 ** length } == number
   end
 end
