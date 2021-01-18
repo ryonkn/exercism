@@ -10,14 +10,9 @@ class Robot
 
   @@robots = ("AA000".."ZZ999").to_a.shuffle.cycle
 
-  def self.forget
-  end
+  def self.forget =
 
-  def initialize
-    reset
-  end
+  def initialize = reset
 
-  def reset
-    @name = @@robots.next
-  end
+  def reset = @name = @@robots.next
 end
