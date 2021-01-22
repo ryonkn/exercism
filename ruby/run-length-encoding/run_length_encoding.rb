@@ -4,11 +4,6 @@ class RunLengthEncoding
   end
 
   def self.decode(input)
-    output = input.scan(/\d*./).map do
-      mo = _1.match(/(\d*)(.)/)
-      count = mo[1].empty? ? 1 : mo[1].to_i
-      mo[2] * count
-    end
-    output.join
+    input.scan(/(\d*)(.)/).map { _2 * (_1.empty? ? 1 : _1.to_i) }.join
   end
 end
