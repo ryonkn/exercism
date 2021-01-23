@@ -1,5 +1,7 @@
 class Array
   def accumulate
-    map { yield _1 }
+    result = []
+    each { result << yield(_1) }
+    result
   end
 end
