@@ -8,24 +8,18 @@ class Bst
   end
 
   def insert(number)
-    if number <= data 
-      if left.nil?
-        @left = self.class.new(number)
-      else
-        @left.insert(number)
-      end
+    if number <= data
+      left ? left.insert(number) : @left = self.class.new(number)
     else
-      if right.nil?
-        @right = self.class.new(number)
-      else
-        @right.insert(number)
-      end
+      right ? right.insert(number) : @right = self.class.new(number)
     end
   end
 
   def each(&block)
-    left.each(&block) unless left.nil?
-    yield data
-    right.each(&block) unless right.nil?
+    left&.each(&block)
+    block&.call(data)
+    right&.each(&block)
+
+    enum_for(:each)
   end
 end
